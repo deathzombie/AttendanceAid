@@ -1,0 +1,76 @@
+/* Apply styles to the entire page */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Style the form container */
+
+form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 100px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 50%;
+    /* Adjust the width as needed */
+    max-width: 400px;
+    /* Set a maximum width for better centering */
+}
+
+
+/* Style labels */
+
+label {
+    color: white;
+    font-weight: bold;
+    display: block;
+    /* Place labels on top of the inputs */
+    margin-bottom: 10px;
+    /* Add space between labels and inputs */
+}
+
+
+/* Style input fields and select boxes */
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+}
+
+
+/* Style the submit button */
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Hover effect for the submit button */
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
