@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Information Form</title>
+    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+
+
+    <style>
+        body {
+            background-color: beige;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .input-container {
+            text-align: center;
+        }
+        
+        input {
+            display: block;
+            margin: 10px auto;
+        }
+        
+        button {
+            display: block;
+            margin: 10px auto;
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+    <!-- <h1>Student Information</h1> -->
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+
+        <label for="rollNumber">Roll Number:</label>
+        <input type="text" id="rollNumber" name="rollNumber" placeholder="Enter your roll number"><br><br>
+
+        <label for="lmsId">LMS ID:</label>
+        <input type="text" id="lmsId" name="lmsId" placeholder="Enter your LMS ID"><br><br>
+
+        <label for="lmsPassword">LMS Password:</label>
+        <input type="password" id="lmsPassword" name="lmsPassword" placeholder="Enter your LMS Password"><br><br>
+
+
+        <label for="branch">Branch:</label>
+        <select id="branch" name="branch">
+            <option value="exe">Choose your branch</option>
+      <option value="coe">COE</option>
+      <option value="copc">COPC</option>
+      <option value="enc">ENC</option>
+      
+    </select><br><br>
+
+        <label for="subgroup">Subgroup:</label>
+        <input type="text" id="subgroup" name="subgroup" placeholder="Enter your subgroup"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
