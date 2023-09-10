@@ -2,7 +2,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 
 
 webdriver_path = "C:/chromedriver-win32 (1)/chromedriver-win32/chromedriver.exe"  
@@ -16,7 +16,7 @@ website_url = "your_target_website"
 browser.get(website_url)
 
 username_field = WebDriverWait(browser, 10).until(
-    EC.visibility_of_element_located((By.ID, "username"))
+    ec.visibility_of_element_located((By.ID, "username"))
 )
 
 password_field = browser.find_element(By.ID, "password")
