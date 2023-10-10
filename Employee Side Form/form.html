@@ -2,41 +2,99 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="index.css">
-    <title>User Information Form</title>
+    <title>Employee Side Form</title>
 </head>
 
 <body>
-    <!-- <h1>Let Us Get The Basic Information</h1> -->
-    <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-
-        <label for="branch">Branch:</label>
-        <select id="branch" name="branch" required>
-            <option value="">Default</option>
-            <option value="coe ">COE</option>
-            <option value="enc">ENC</option>
-            <option value="csbs">CSBS</option>
-        </select><br><br>
-
-        <label for="subgroup">Subgroup:</label>
-        <select id="subgroup" name="subgroup" required>
-            <option value="Default">Group</option>
-            <option value="nc1">Subgroup 1</option>
-            <option value="nc2">Subgroup 2</option>
-            <option value="nc3">Subgroup 3</option>
-            <!-- Add more options as needed -->
-        </select><br><br>
-
-        <label for="lms-id">LMS ID:</label>
-        <input type="text" id="lms-id" name="lms-id" required><br><br>
-
-        <label for="lms-password">LMS Password:</label>
-        <input type="password" id="lms-password" name="lms-password" required><br><br>
-
+    <h1>Employee Side Form</h1>
+    <form id="employee-form" action="/submit" method="POST">
+        <fieldset>
+            <legend>Select Department:</legend>
+            <input type="radio" id="coe" name="department" value="coe">
+            <label for="coe">COE</label>
+            <input type="radio" id="enc" name="department" value="enc">
+            <label for="enc">ENC</label>
+            <input type="radio" id="ece" name="department" value="ece">
+            <label for="ece">ECE</label>
+        </fieldset>
+        <fieldset>
+            <legend>Subgroup:</legend>
+            <select id="subgroup" name="subgroup">
+                <option value="">Select a subgroup</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>Courses:</legend>
+            <select id="courses" name="courses">
+                <option value="">Select a course</option>
+            </select>
+        </fieldset>
         <input type="submit" value="Submit">
     </form>
+
+
+
+
+    <script>
+        const subgroupDropdown = document.getElementById("subgroup");
+        const coursesDropdown = document.getElementById("courses");
+
+        const departmentRadioButtons = document.querySelectorAll('input[name="department"]');
+
+        departmentRadioButtons.forEach((radioButton) => {
+            radioButton.addEventListener("change", () => {
+                updateSubgroupsAndCourses();
+            });
+        });
+
+        function updateSubgroupsAndCourses() {
+            const selectedDepartment = document.querySelector('input[name="department"]:checked');
+
+            subgroupDropdown.innerHTML = '<option value="">Select a subgroup</option>';
+            coursesDropdown.innerHTML = '<option value="">Select a course</option>';
+
+            if (selectedDepartment) {
+                const departmentValue = selectedDepartment.value;
+
+                if (departmentValue === "coe") {
+                    // Populate COE subgroups and courses
+                    populateSubgroups(["CO1", "CO2", "CO3", "CO4", "CO5", "CO6", "CO7", "CO8", "CO9", "CO10", "CO11", "CO12", "CO13", "CO14", "CO15", "CO16", "CO17", "CO18", "CO19", "CO20", "CO21", "CO22", "CO23", "CO24", "CO25", "CO26", "CO27", "CO28", "CO29", "CO30", "CO31"]);
+                    populateCourses(["Numerical Analysis(UMA011)", "Data Structures", "Engineering Materials(UES012)", "Operating System"]);
+                } else if (departmentValue === "enc") {
+                    // Populate ENC subgroups and courses
+                    populateSubgroups(["NC1", "NC2", "NC3", "NC4", "NC5", "NC6", "NC7", "NC8", "NC9", "NC10", "NC11", "NC12"]);
+                    populateCourses(["Engineering Materials(UES012)", "Numerical Analysis(UMA011)", "Analog Electronics(UEC301)"]);
+                } else if (departmentValue === "ece") {
+                    // Populate ECE subgroups and courses
+                    populateSubgroups(["EC1", "EC2", "EC3", "EC4", "EC5", "EC6", "EC7", "EC8", "EC9", "EC10"]);
+                    populateCourses(["DSP", "Engineering Materials(UES012)", "Numerical Analysis(UMA011)"]);
+                }
+            }
+        }
+
+
+        function populateSubgroups(subgroupOptions) {
+            subgroupOptions.forEach((option) => {
+                const opt = document.createElement("option");
+                opt.value = option;
+                opt.textContent = option;
+                subgroupDropdown.appendChild(opt);
+            });
+        }
+
+        function populateCourses(courseOptions) {
+            courseOptions.forEach((option) => {
+                const opt = document.createElement("option");
+                opt.value = option;
+                opt.textContent = option;
+                coursesDropdown.appendChild(opt);
+            });
+        }
+
+        // Initial update when the page loads
+        updateSubgroupsAndCourses();
+    </script>
+
 </body>
 
 </html>
